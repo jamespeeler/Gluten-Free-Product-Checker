@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    font-family: 'Radio Canada', sans-serif;
+    background-color: #DEC3BE;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 30px 0 10px;
+}
+
+p {
+    font-size: 0.8em;
+    margin-bottom: 15px;
+}
+
+form {
+    margin-bottom: 35px;
+}
+
+.nameTitle,
+.imageTitle,
+.gfTitle {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
