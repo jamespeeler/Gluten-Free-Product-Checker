@@ -23,6 +23,11 @@ form {
     display: inline;
 }
 
+.barcodeWrongLength,
+.notAProduct {
+    display: block;
+}
+
 button {
     display: inline;
     margin-bottom: 35px;
@@ -33,6 +38,10 @@ button {
 .gfTitle {
     display: block;
     margin-bottom: 10px;
+}
+
+img {
+    margin-bottom: 20px;
 }
 
 .hidden {

@@ -3,9 +3,33 @@
 document.querySelector('.check').addEventListener('click', compute)
 
 function compute(){
-    // Remove the 'hidden' class from the spans
-    removeHidden()
-    getFetch();
+    let barcode = document.querySelector('input').value
+    if (barcode.length != 12){
+        hideProductError();
+        hideContent();
+        error();
+      } else {
+          hideError();
+          removeHidden();
+          getFetch();
+      }
+}
+
+function hideContent(){
+    let allTitles = document.querySelectorAll('.title')
+    allTitles.forEach(e => {e.classList.add('hidden')})
+}
+
+function hideError(){
+    let errorMessage = document.querySelector('.barcodeWrongLength')
+    let productError = document.querySelector('.notAProduct')
+    errorMessage.classList.add('hidden')
+    productError.classList.add('hidden')
+}
+
+function hideProductError(){
+    let productError = document.querySelector('.notAProduct')
+    productError.classList.add('hidden')
 }
 
 function removeHidden(){
@@ -28,6 +52,9 @@ function getFetch(){
         })
         .catch(err => {
             console.log(`error ${err}`)
+            hideContent();
+            hideError();
+            productNotFound();
         });
   }
 
@@ -47,4 +74,14 @@ function getFetch(){
       } else {
           gfStatusChange.innerText = 'This product IS gluten free'
       }
+  }
+
+  function error(){
+      let errorRef = document.querySelector('.barcodeWrongLength')
+      errorRef.classList.remove('hidden')
+  }
+
+  function productNotFound(){
+        let productError = document.querySelector('.notAProduct')
+        productError.classList.remove('hidden')
   }
